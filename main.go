@@ -54,7 +54,7 @@ func main() {
 			log.Fatalf("failed to write pid to file: %v\n", err)
 		}
 	} else {
-		fmt.Fprintln(os.Stdout, pid.Pretty())
+		// fmt.Fprintln(os.Stdout, pid.Pretty())
 	}
 
 	data, err := priv.Bytes()
@@ -75,6 +75,7 @@ func main() {
 			log.Fatalf("failed to write to private key file: %v\n", err)
 		}
 	} else {
-		fmt.Fprintln(os.Stdout, b64data)
+		// fmt.Fprintln(os.Stdout, b64data)
+		fmt.Fprintf(os.Stdout, "{\"id\": \"%s\", \"private_key\": \"%s\"}\n", pid.Pretty(), b64data);
 	}
 }
